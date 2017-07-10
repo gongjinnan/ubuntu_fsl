@@ -1,13 +1,13 @@
 FROM ubuntu:trusty
 MAINTAINER Jinnan Gong <gongjinnan1989@gmail.com>
-RUN apt-get update
-RUN apt-get -y install wget
-RUN apt-get install -y curl
-RUN wget -O- http://neuro.debian.net/lists/trusty.cn-zj.full | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-RUN sudo apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9
-RUN sudo apt-get update
-RUN apt-get install -y fsl-complete
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -sSL http://neuro.debian.net/lists/trusty.cn-bj2.full >> /etc/apt/sources.list.d/neurodebian.sources.list && \
+    apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9 && \
+    apt-get update && \
+    apt-get remove -y curl && \
+    apt-get install -y fsl-core && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Configure environment
 ENV FSLDIR=/usr/share/fsl/5.0
