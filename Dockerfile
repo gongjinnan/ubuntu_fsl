@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER Jinnan Gong <gongjinnan1989@gmail.com>
 RUN apt-get -y install wget
-RUN cd /rootC:\Users\Administrator\AppData\Local\atom\atom.exe &&  \
+RUN cd /root &&  \
 	wget http://mirrors.163.com/.help/sources.list.trusty &&  \
 	sudo cp -f /root/sources.list.trusty /etc/apt/sources.list &&  \
 	apt-get update &&  \
