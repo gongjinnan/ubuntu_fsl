@@ -1,5 +1,6 @@
 FROM ubuntu:trusty
 MAINTAINER Jinnan Gong <gongjinnan1989@gmail.com>
+RUN apt-get update
 RUN apt-get -y install wget
 RUN cd /root &&  \
 	wget http://mirrors.163.com/.help/sources.list.trusty &&  \
