@@ -4,8 +4,8 @@ RUN apt-get update
 RUN apt-get -y install wget
 RUN apt-get install -y curl
 RUN wget -O- http://neuro.debian.net/lists/trusty.cn-zj.full | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-RUN sudo apt-get update
 RUN sudo apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9
+RUN sudo apt-get update
 RUN apt-get install -y fsl-complete
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
